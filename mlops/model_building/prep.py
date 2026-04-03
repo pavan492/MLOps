@@ -13,7 +13,7 @@ from huggingface_hub import login, HfApi
 # Define constants for the dataset and output paths
 api = HfApi(token=os.getenv("HF_TOKEN"))
 DATASET_PATH = "hf://datasets/Pavan-K492/tourism-package-prediction/tourism.csv"
-bank_dataset = pd.read_csv(DATASET_PATH)
+tour_dataset = pd.read_csv(DATASET_PATH)
 print("Dataset loaded successfully.")
 
 # Define the target variable for the classification task
@@ -41,12 +41,12 @@ numeric_features = [
 
 #Labeling the categorical features for faster processing
 label_encoder = LabelEncoder()
-data['TypeofContact'] = label_encoder.fit_transform(data['TypeofContact'])
-data['Occupation'] = label_encoder.fit_transform(data['Occupation'])
-data['Gender'] = label_encoder.fit_transform(data['Gender'])
-data['ProductPitched'] = label_encoder.fit_transform(data['ProductPitched'])
-data['MaritalStatus'] = label_encoder.fit_transform(data['MaritalStatus'])
-data['Designation'] = label_encoder.fit_transform(data['Designation'])
+tour_dataset['TypeofContact'] = label_encoder.fit_transform(tour_dataset['TypeofContact'])
+tour_dataset['Occupation'] = label_encoder.fit_transform(tour_dataset['Occupation'])
+tour_dataset['Gender'] = label_encoder.fit_transform(tour_dataset['Gender'])
+tour_dataset['ProductPitched'] = label_encoder.fit_transform(tour_dataset['ProductPitched'])
+tour_dataset['MaritalStatus'] = label_encoder.fit_transform(tour_dataset['MaritalStatus'])
+tour_dataset['Designation'] = label_encoder.fit_transform(tour_dataset['Designation'])
 
 # List of categorical features in the dataset
 categorical_features = [
