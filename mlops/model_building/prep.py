@@ -59,10 +59,10 @@ categorical_features = [
 ]
 
 # Define predictor matrix (X) using selected numeric and categorical features
-X = data[numeric_features + categorical_features]
+X = tour_dataset[numeric_features + categorical_features]
 
 # Define target variable
-y = data[target]
+y = tour_dataset[target]
 
 
 # Split dataset into train and test
